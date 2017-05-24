@@ -1,0 +1,72 @@
+original_data_set,field_name,field_name_final_dataset,description,additional_notes
+loans_full,id,id,Unique identifier for a Kiva loan,Int
+loans_full,name ,name ,The name of the borrower or group receiving the loan,String
+loans_full,gender ,gender ,The gender of the primary borrower OR majority gender if group,possible values are male or female
+loans_full,description ,description ,The description of the loan profile in English.,String
+loans_full,status,status,All possible loan statuses,The public dataset does not reveal defaulted loans
+loans_full,fundedAmount  ,fundedAmount  ,​The amount of the loan that has been purchased by lenders,​The dollar amount in US
+loans_full,basketAmount,basketAmount,"The amount of the unfunded loan that is sitting in lenders' baskets, waiting to be purchased",​The dollar amount in US
+loans_full,image ,image ,The picture for this loan profile,Image
+loans_full,activity,activity,The activity is a structured categorization of the loan use,"A property of loan which is more descriptive than Sector. Every activity is within a sector. e.g. the 'Animal Sales' activity is within the 'Agriculture' sector. Note, some Activities have the same name as their parent Sector"
+loans_full,sector,sector,The sector is a more general classification of the loan than activity,"A sector is a broad category for a loan, e.g. Agriculture, Arts, Clothing. Sectors are subdivided further by activities.
+"
+loans_full,use  ,use  ,Text describing what the loan is to be used for; a logical subset of description e.g.  To buy a cow ,String
+loans_full,location,location,"The physical location of the borrower and/or busines town: town, country, geocode","Kiva Geocode = city, state, postalCode, llatitude, longitude"
+loans_full,partner_id,partner_id,Kiva Id for partner,int
+loans_full,posted_date,posted_date,When the loan started fundraising on Kiva.,"Returns a UTC datetime in ISO8601 format. As an input field, it can accept an integer unix timestamp or any date string parsable by php strtotime()"
+loans_full,planned_expiration_date ,planned_expiration_date ,"When the loan will expire if it is not fully funded
+","Returns a UTC datetime in ISO8601 format. As an input field, it can accept an integer unix timestamp or any date string parsable by php strtotime()"
+loans_full,loan_amount,loan_amount,"The amount of this loan, as shown to lenders",The dollar amount in USD
+loans_full,borrower_count,borrower_count,The number of borrowers participating in the loan,Int
+loans_full,lender_count,lender_count,The number of borrowers participating in the loan,Int
+loans_full,bonus_credit_eligibility,bonus_credit_eligibility,The loan is eligible for matching funds if a share is purchased,Boolean
+loans_full,tags,tags,A list of tags on this loan,String
+loans_detail,id,id,Unique identifier for a Kiva loan,Int
+loans_detail,name ,name ,The name of the borrower or group receiving the loan,String
+loans_detail,gender ,gender ,The gender of the primary borrower OR majority gender if group,possible values are male or female
+loans_detail,description ,description ,"The description of the loan profile in English, returns a dictionary {""languages"": [""an array of languaes used in the description""], ""texts""= {""naguage of text"": ""actual description of the loan use""}}",includes fields: languages: 
+loans_detail,status,status,All possible loan statuses,The public dataset does not reveal defaulted loans
+loans_detail,fundedAmount  ,fundedAmount  ,​The amount of the loan that has been purchased by lenders,​The dollar amount in US
+loans_detail,basketAmount,basketAmount,"The amount of the unfunded loan that is sitting in lenders' baskets, waiting to be purchased",​The dollar amount in US
+loans_detail,image ,image ,"The picture for this loan profile, returns a dictionary",Image
+loans_detail,activity,activity,The activity is a structured categorization of the loan use,"A property of loan which is more descriptive than Sector. Every activity is within a sector. e.g. the 'Animal Sales' activity is within the 'Agriculture' sector. Note, some Activities have the same name as their parent Sector"
+loans_detail,sector,sector,The sector is a more general classification of the loan than activity,"A sector is a broad category for a loan, e.g. Agriculture, Arts, Clothing. Sectors are subdivided further by activities.
+"
+loans_detail,use  ,use  ,Text describing what the loan is to be used for; a logical subset of description e.g.  To buy a cow ,String
+loans_detail,location,location,"The physical location of the borrower and/or business, returns a dictionary {""country_code"": two-character ISO country code, ""country"": name of country in English, ""town"": name of town, geocode= {""level"": Kiva geocoding category, ""pairs"": latitude and longitude data as a string, ""type"": type of geocode }}","Kiva Geocode = city, state, postalCode, llatitude, longitude"
+loans_detail,partner_id,partner_id,Kiva Id for partner,int
+loans_detail,posted_date,posted_date,When the loan started fundraising on Kiva.,"Returns a UTC datetime in ISO8601 format. As an input field, it can accept an integer unix timestamp or any date string parsable by php strtotime()"
+loans_detail,loan_amount,loan_amount,"The amount of this loan, as shown to lenders",The dollar amount in USD
+loans_detail,lender_count,lender_count,The number of borrowers participating in the loan,Int
+loans_detail,bonus_credit_eligibility,bonus_credit_eligibility,The loan is eligible for matching funds if a share is purchased,Boolean
+loans_detail,tags,tags,A list of tags on this loan,String
+loans_detail,borrowers,borrowers,"Information about the borrowers associated with the loan, returns a list of dictionaries {first_name"": first name of borrower, ""last_name"": is left blank on the public api, ""pictured"": is borrower in the picture }",
+loans_detail,terms,terms,"Information about terms of the loand, returns at dictionary {""disbursal_date"": when funds were disbursed by the partner to the borrower, ""disbursal_currency"": amount disbursed in USD, ""repayment_term"": the number of months it will take to repay loan,  ""loan_amount"": amount of loan in USD, ""local_payments"" : empty array, ""scheduled_payments"": empty array, ""loss_liability"": returnd a dictionary,( """"nonpayment"": If the borrower doesn't repay, who loses out: the partner or the lender?, ""currency_exchange"": If the foreign currency devalue, is the loss assumed by the partner or 
+shared between the partner and lender? This field will be 'none' when 
+the loan is in USD, ""payments "": empty array, ""funded_date"": date that the loan was funded on kiva, ""jounal_totals"": Retrieve journal entries associated with a particular loan. Due to 
+borrower privacy concerns we only show journal entries on fund raising 
+loans }}","""local_payments"", ""scheduled_paymnets"" and ""payments"" defaults to an empty array if the user is not privileged to the loan"
+loans_partner_details,id,partner_id,Unique identifier for a Kiva partner,Int
+loans_partner_details,name ,partner_name,The name of the microfinance field partner,String
+loans_partner_details,"""status"":",partner_status,The status of the partner’s relationship with Kiva,String
+loans_partner_details,"""rating"":",partner_rating,Field Partner Risk Rating,Float as a string
+loans_partner_details,"""image""",partner_image,"Field Partner logo, returns dictionary with image id ",Image
+loans_partner_details,"""start_date""",partner_start_date,When the partner started offering loans on kiva,"Returns a UTC datetime in ISO8601 format. As an input field, it can accept an integer unix timestamp or any date string parsable by php strtotime()"
+loans_partner_details,"""countries""",partner_countries,"The physical location of the borrower and/or business, returns a dictionary {""country_code"": two-character ISO country code, ""country"": name of country in English, ""town"": name of town, geocode= {""level"": Kiva geocoding category, ""pairs"": latitude and longitude data as a string, ""type"": type of geocode }}","Kiva Geocode = city, state, postalCode, llatitude, longitude"
+loans_partner_details,"""delinquency_rate""",partner_delinquency_rate,Kiva defines a partner's delinquency (arrears) rate as the amount of late payments divided by the total outstanding principal balance Kiva has with the Field Partner. ,Float
+loans_partner_details,"""default_rate""",partner_default_rate,the percentage of Kiva loans being paid back by this Field Partner that are past due in repayment by at least 1 day. This delinquency can be due to either non-payment by Kiva borrowers or non-payment by the Field Partner itself.,Float
+loans_partner_details,"""total_amount_raised""",partner_total_amount_raised,The total of all loans made by the partner on Kiva in USD,Int
+loans_partner_details,"""loans_posted""",partner_loans_posted,The number of loans made by the partner on Kiva,Int
+loans_partner_details,"""portfolio_yield""",partner_portfolio_yield,"Kiva uses a calculation called ""portfolio yield"" to express the average interest rate and fees that Kiva borrowers pay to the Kiva Field Partner administering their loan. ",Float
+loans_partner_details,"""profitability"":",partner_profitability, an indication of a Field Partner's profitability,Float
+loans_partner_details,"""social_performance_strengths""",partner_social_performance_strengths,Returns a list of Social performance types that are associated with the Parnter,Array
+loans_partner_details,"""delinquency_rate_note""",partner_delinquency_rate_note,"A Kiva-supplied note that is shown in lieu of delinquency rate
+",is an empty string to be shown user w/o approriate priveledges
+loans_partner_details,"""default_rate_note""",partner_default_rate_note,"A Kiva-supplied note that is shown in lieu of delinquency rate
+",is an empty string to be shown user w/o approriate priveledges
+loans_partner_details,"""portfolio_yield_note""",partner_portfolio_yield_note,A Kiva-supplied note that is shown in lieu of portfolio yield,is an empty string to be shown user w/o approriate priveledges
+loans_partner_details,"""charges_fees_and_interest""",partner_charges_fees_and_interest,A true/false property for whether the partner charges fees and/or interest to borrowers,Boolean
+loans_partner_details,"""average_loan_size_percent_per_capita_income""",partner_average_loan_size_percent_per_capita_income,A ratio of the partner's average loan size to the per capita income of the country they work in,Float
+loans_partner_details,"""loans_at_risk_rate""",partner_loans_at_risk_rate,A decimal representing the percentage of the partner’s outstanding portfolio which is overdue but not yet repaid;,
+loans_partner_details,"""currency_exchange_loss_rate""",partner_currency_exchange_loss_rate,Kiva calculates the Currency Exchange Loss Rate for its Field Partners as: Amount of Currency Exchange Loss / Total Loans.,Float
+loans_partner_details,"""url""",partner_url,Partner's web address or link,String
