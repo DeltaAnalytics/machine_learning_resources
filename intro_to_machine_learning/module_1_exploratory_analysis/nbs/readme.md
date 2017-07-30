@@ -4,11 +4,11 @@
 
 Welcome to the first module! In this notebook, we start exploring our [Kiva](https://www.kiva.org/) dataset. The goal of exploratory analysis is to summarize the main characteristics of a data set, with the belief that it may lead to new hypotheses that inform algorithm choice and experimentation. Exploratory analysis happens before formal modelling commences, and is extremely important for helping inform or sharpen your hypothesis.
 
-# Module 1a: Import and Merge Data
+## Module 1a: Import and Merge Data
 
-# Module 1b: Data Cleaning and Creating New Variables
+## Module 1b: Data Cleaning and Creating New Variables
 
-# Module 1c: Exploratory Analysis
+## Module 1c: Exploratory Analysis
 
 1c(i): What KIVA sectors get the most funding?
 1c(ii): What is the average dollar amount that people lend?
